@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookManagement
 {
-    public class AddMultipleDetails
+    public class AddMultipleAddressBook
     {
         public string firstName;
         public string lastName;
