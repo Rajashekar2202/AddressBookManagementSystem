@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBookManagement
 {
-    public class EditPersonDetails
+    public class DeletePersonDetails
     {
         public string firstName;
         public string lastName;

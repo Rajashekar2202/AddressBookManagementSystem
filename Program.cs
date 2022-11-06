@@ -88,6 +88,40 @@ namespace AddressBookManagement
                 Console.WriteLine("Do you want to Edit Contact press 1 to edit or press 2 to cancle.");
                 num = Convert.ToInt32(Console.ReadLine());
             }
+            while (num == 1 && contactList.Count > 0)
+            {
+                Console.WriteLine("Enter contact First name");
+                string firstName = Console.ReadLine();
+
+                bool found = false;
+
+                for (int i = 0; i < contactList.Count; i++)
+                {
+                    if (contactList[i].firstName == firstName)
+                    {
+                        found = true;
+                        contactList.RemoveAt(i);
+                        break;
+                    }
+                }
+                if (found)
+                {
+                    if (contactList.Count == 0)
+                        break;
+                }
+                else
+                {
+                    Console.WriteLine("the contact with given person '{0}' is not in address book", firstName);
+
+                    Console.WriteLine("Current contacts in adress book");
+                    foreach (CreateContacts contact in contactList)
+                    {
+                        Console.WriteLine(contact.firstName);
+                    }
+                    Console.WriteLine("Do you want to delete contact press 1 to delete or press 2 to cancle.");
+                    num = Convert.ToInt32(Console.ReadLine());
+                }                    
+            }
         }
     }
 }
