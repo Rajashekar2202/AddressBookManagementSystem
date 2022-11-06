@@ -1,4 +1,6 @@
-﻿namespace AddressBookManagement
+﻿using System;
+
+namespace AddressBookManagement
 {
     class Program
     {
@@ -6,34 +8,41 @@
         public static void Main(string[] args)
         {
             Console.WriteLine("Welcome to AddressBookManagmentSystem");
+            Console.WriteLine("Do you want to add new contact press 1 if not press 2");
+            int num = Convert.ToInt32(Console.ReadLine());
 
-            CreateContacts contact1 = new CreateContacts();
-            Console.WriteLine("Enter first name: ");
-            contact1.firstName = Console.ReadLine();
+            while (num == 1)
+            {
+                CreateContacts create = new CreateContacts();
 
-            Console.WriteLine("Enter last name: ");
-            contact1.lastName = Console.ReadLine();
+                Console.WriteLine("Enter First Name: ");
+                create.firstName = Console.ReadLine();
+                Console.WriteLine("Enter Last Name: ");
+                create.lastName = Console.ReadLine();
+                Console.WriteLine("Enter Address: ");
+                create.address = Console.ReadLine();
+                Console.WriteLine("Enter City: ");
+                create.city = Console.ReadLine();
+                Console.WriteLine("Enter State: ");
+                create.state = Console.ReadLine();
+                Console.WriteLine("Enter Phone: ");
+                create.phone = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Enter Email: ");
+                create.email = Console.ReadLine();
+                Console.WriteLine("Enter Zipcode: ");
+                create.zipcode = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine("Enter address: ");
-            contact1.address = Console.ReadLine();
+                contactList.Add(create);
+                Console.WriteLine("Do you want to Add another Contact then press 1 or press 2 for exit ");
+                num = Convert.ToInt32(Console.ReadLine());
+            }
 
-            Console.WriteLine("Enter city: ");
-            contact1.city = Console.ReadLine();
+            Console.WriteLine("Total number of contact in address book:" + contactList.Count);
 
-            Console.WriteLine("Enter state: ");
-            contact1.state = Console.ReadLine();
-
-            Console.WriteLine("Enter phone: ");
-            contact1.phone = Convert.ToInt32(Console.ReadLine());
-
-            Console.WriteLine("Enter email: ");
-            contact1.email = Console.ReadLine();
-
-            Console.WriteLine("Enter zipcode: ");
-            contact1.zipcode = Convert.ToInt32(Console.ReadLine());
-
-
-            contactList.Add(contact1);
+            foreach (CreateContacts contact in contactList)
+            {
+                Console.WriteLine(contact.firstName);
+            }
         }
     }
 }
